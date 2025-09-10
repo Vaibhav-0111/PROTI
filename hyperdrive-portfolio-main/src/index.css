@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cinematic Portfolio Design System - Ultra Dynamic 3D Experience */
+
+@layer base {
+  :root {
+    /* Core Background - Deep Space */
+    --background: 224 71% 4%;
+    --foreground: 213 100% 98%;
+
+    /* Cards - Glass Morphism */
+    --card: 224 20% 8%;
+    --card-foreground: 213 100% 98%;
+    --card-glow: 265 89% 78%;
+
+    /* Popover Glass */
+    --popover: 224 20% 6%;
+    --popover-foreground: 213 100% 98%;
+
+    /* Primary - Electric Cyan */
+    --primary: 180 100% 70%;
+    --primary-foreground: 224 71% 4%;
+    --primary-glow: 180 100% 85%;
+
+    /* Secondary - Deep Purple */
+    --secondary: 265 89% 78%;
+    --secondary-foreground: 224 71% 4%;
+
+    /* Muted - Subtle Gray */
+    --muted: 224 20% 12%;
+    --muted-foreground: 213 50% 70%;
+
+    /* Accent - Neon Pink */
+    --accent: 320 100% 75%;
+    --accent-foreground: 224 71% 4%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 213 100% 98%;
+
+    /* Borders - Glowing */
+    --border: 224 20% 15%;
+    --input: 224 20% 10%;
+    --ring: 180 100% 70%;
+
+    /* Cinematic Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(224 71% 4%) 0%, hsl(265 89% 15%) 50%, hsl(224 71% 4%) 100%);
+    --gradient-aurora: linear-gradient(135deg, hsl(180 100% 70%) 0%, hsl(265 89% 78%) 50%, hsl(320 100% 75%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(224 20% 8% / 0.8) 0%, hsl(224 20% 12% / 0.4) 100%);
+    --gradient-neon: linear-gradient(90deg, hsl(180 100% 70%) 0%, hsl(320 100% 75%) 100%);
+    
+    /* Shadows - Cinematic Glow */
+    --shadow-neon: 0 0 20px hsl(180 100% 70% / 0.3), 0 0 40px hsl(180 100% 70% / 0.2);
+    --shadow-purple: 0 0 20px hsl(265 89% 78% / 0.3), 0 0 40px hsl(265 89% 78% / 0.2);
+    --shadow-pink: 0 0 20px hsl(320 100% 75% / 0.3), 0 0 40px hsl(320 100% 75% / 0.2);
+    --shadow-glass: 0 8px 32px hsl(224 71% 4% / 0.4), 0 4px 16px hsl(224 71% 4% / 0.2);
+
+    /* Animation Durations */
+    --transition-fast: 0.2s;
+    --transition-smooth: 0.4s;
+    --transition-cinematic: 0.8s;
+
+    --radius: 12px;
+  }
+
+  .dark {
+    /* Already dark by default - keep same values */
+    --background: 224 71% 4%;
+    --foreground: 213 100% 98%;
+    --card: 224 20% 8%;
+    --card-foreground: 213 100% 98%;
+    --popover: 224 20% 6%;
+    --popover-foreground: 213 100% 98%;
+    --primary: 180 100% 70%;
+    --primary-foreground: 224 71% 4%;
+    --secondary: 265 89% 78%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 224 20% 12%;
+    --muted-foreground: 213 50% 70%;
+    --accent: 320 100% 75%;
+    --accent-foreground: 224 71% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 213 100% 98%;
+    --border: 224 20% 15%;
+    --input: 224 20% 10%;
+    --ring: 180 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
+    background: var(--gradient-cosmic);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Cinematic Text Effects */
+  .text-gradient {
+    background: var(--gradient-aurora);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-flow 3s ease-in-out infinite;
+  }
+
+  .text-neon {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  /* Glass Morphism */
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Neon Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .glow-pink {
+    box-shadow: var(--shadow-pink);
+  }
+
+  /* Hover Interactions */
+  .hover-lift {
+    transition: transform var(--transition-smooth) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .hover-glow {
+    transition: all var(--transition-smooth) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-neon);
+    transform: scale(1.05);
+  }
+
+  /* Magnetic Effect */
+  .magnetic {
+    transition: transform var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Particle Animation Container */
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+@layer utilities {
+  /* Keyframe Animations */
+  @keyframes gradient-flow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.4);
+    }
+  }
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-flow 3s ease-in-out infinite;
+  }
+
+  /* Cinematic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-neon);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
